@@ -4,41 +4,24 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-public enum Colors
-{
-    Red,
-    Green, 
-    Blue
-}
-
 public class Island : MonoBehaviour
 {
     bool Highlighted = false;
     public int StackCapacity = 4;
-
-    //island stack has squads
-    //squad has own soldiers, they go to different islands
-    //island has squad points
-    //soldiers gets next islans.squadpoints and go to destination
-    //soldiers take destination by hadle positions and target positions
-    //sequence them and goes by
-    //island getnextposition and position filled
 
     public Stack<ColorStackItem> stack = new Stack<ColorStackItem>();
     public Transform[] itemPositions;
 
     [SerializeField] GameObject stackItemPrefab;
     [SerializeField] StackItemData[] startItems;
+    
+    public Transform PathConnect, PathHandle;
+
+    float unHighlightTime;
 
     void Start()
     {
         LoadItems();
-    }
-
-    
-    void Update()
-    {
-        
     }
 
     void LoadItems()

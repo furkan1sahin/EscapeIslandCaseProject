@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5394229644011547075
 Transform:
   m_ObjectHideFlags: 0
@@ -129,3 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: ac90ef6f0c7f1864282c397184fe18a7, type: 2}
+  stickmanPrefab: {fileID: 6442128903191343583, guid: d88dac72915071b4082f775415883ea2,
+    type: 3}
+  pathwayPrefab: {fileID: 2434087094388169316, guid: 2914920cd283b284da240ca3815f1374,
+    type: 3}

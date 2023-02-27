@@ -45,34 +45,10 @@ public class IslandManager : MonoBehaviour
 
             if (island.CheckAvailable(highLightedIsland.GetColor()))
             {
+                island.Highlight();
                 MigrateItem(island);
-            } else UnHighlight();
-
-            //if (island != null)
-            //{
-            //    if (highLightedIsland != null)
-            //    {
-            //        if (island == highLightedIsland)
-            //        {
-            //            UnHighlight();
-            //            return;
-            //        }
-
-            //    }
-            //    else
-            //    {
-            //        if (island.stack.Count > 0)
-            //        {
-            //            highLightedIsland = island;
-                        
-            //        }
-            //    }
-
-            //}
-            //else
-            //{
-            //    UnHighlight();
-            //}
+            } 
+            else UnHighlight();
         }
     }
 
@@ -81,7 +57,8 @@ public class IslandManager : MonoBehaviour
         ColorStackItem itemToMove = highLightedIsland.stack.Pop();
         island.stack.Push(itemToMove);
         itemToMove.MoveToNewIsland(island);
-        UnHighlight();
+        //UnHighlight();
+        highLightedIsland = null;
     }
 
     void UnHighlight()

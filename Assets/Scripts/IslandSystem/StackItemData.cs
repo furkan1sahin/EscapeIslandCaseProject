@@ -8,5 +8,11 @@ public class StackItemData : ScriptableObject
 {
     public Material material;
     public Colors colorType;
+}
 
+public enum Colors
+{
+    Red,
+    Green,
+    Blue
 }
