@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] int CurrentLevel = 1;
+    [SerializeField] ScriptableInt currentLevelData;
     [SerializeField] ScriptableEvent GameStartEvent;
     bool isGameStarted = false;
     bool isGameCompleted = false;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
+        currentLevelData.UpdateValue(CurrentLevel);
     }
 
     void Start()
@@ -52,5 +54,11 @@ public class GameManager : MonoBehaviour
     public void GameFailed()
     {
         isGameCompleted = true;
+    }
+
+    public void LoadNextLevel()
+    {
+        levelLoader.LoadLevel(CurrentLevel);
+        currentLevelData.UpdateValue(CurrentLevel);
     }
 }

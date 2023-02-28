@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 457155246}
   - component: {fileID: 457155247}
+  - component: {fileID: 457155249}
+  - component: {fileID: 457155248}
   m_Layer: 0
   m_Name: Islands
   m_TagString: Untagged
@@ -169,6 +171,77 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7a65e8cd767f6542b803bfd52a2adc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorsToComplete: 1
+  LevelCompleteEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: cc2fe7fcef2c21e4b908799826ef37a7, type: 2}
+        m_TargetAssemblyTypeName: ScriptableEvent, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  highlightEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: db1239ac1e4943541957df72a3647ecb, type: 2}
+        m_TargetAssemblyTypeName: ScriptableEvent, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &457155248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457155245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98089cf2b1976946b0aa8668c468adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableEvent: {fileID: 11400000, guid: e5f2d7a7e4f3dc249bcfa6e2a0d5e8c8, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 457155249}
+        m_TargetAssemblyTypeName: UndoController, Assembly-CSharp
+        m_MethodName: Undo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &457155249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457155245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee825132d0a32e40ae2d61634b8defd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1269107532
@@ -261,7 +334,7 @@ PrefabInstance:
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
@@ -271,7 +344,7 @@ PrefabInstance:
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -5.000003
       objectReference: {fileID: 0}
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
@@ -331,7 +404,7 @@ PrefabInstance:
     - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: startItems.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
@@ -349,7 +422,7 @@ PrefabInstance:
         type: 3}
       propertyPath: startItems.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: d068ad9a4ac022c468dace599f83639f,
+      objectReference: {fileID: 11400000, guid: 87775fc3e65b57b4693c88d71415bc33,
         type: 2}
     - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
@@ -469,7 +542,7 @@ PrefabInstance:
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
@@ -479,7 +552,7 @@ PrefabInstance:
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 4.999997
       objectReference: {fileID: 0}
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}

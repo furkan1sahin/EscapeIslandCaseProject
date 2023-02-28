@@ -2,15 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class IslandManager : MonoBehaviour
 {
     Camera cam;
     Island highLightedIsland;
 
+    [SerializeField] int colorsToComplete;
+    int completedIslands = 0;
+
+    [SerializeField] UnityEvent LevelCompleteEvent;
+    [SerializeField] UnityEvent highlightEvent;
+    UndoController undoController;
+
     void Start()
     {
-        cam = Camera.main;    
+        cam = Camera.main;
+        undoController = GetComponent<UndoController>();
     }
 
     void Update()
@@ -34,6 +43,7 @@ public class IslandManager : MonoBehaviour
                 if (island.stack.Count == 0) return; 
                 highLightedIsland = island;
                 highLightedIsland.Highlight();
+                highlightEvent.Invoke();
                 return;
             }
 
@@ -46,6 +56,7 @@ public class IslandManager : MonoBehaviour
             if (island.CheckAvailable(highLightedIsland.GetColor()))
             {
                 island.Highlight();
+                highlightEvent.Invoke();
                 MigrateItem(island);
             } 
             else UnHighlight();
@@ -59,11 +70,21 @@ public class IslandManager : MonoBehaviour
         itemToMove.MoveToNewIsland(island);
         //UnHighlight();
         highLightedIsland = null;
+        undoController.AddMove(highLightedIsland, island);
     }
 
     void UnHighlight()
     {
         highLightedIsland.UnHighlight();
         highLightedIsland = null;
+    }
+
+    public void IslandCompleted()
+    {
+        completedIslands++;
+        if(completedIslands > colorsToComplete)
+        {
+            LevelCompleteEvent.Invoke();
+        }
     }
 }

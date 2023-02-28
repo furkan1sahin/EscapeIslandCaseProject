@@ -30,12 +30,19 @@ public class ColorStackItem : MonoBehaviour
         stickmans = new StickmanController[stickmanCount];
     }
 
-    public void MoveToNewIsland(Island _newIsland)
+    public void MoveToNewIsland(Island _newIsland, bool fastMove = false)
     {
         oldIsland = currentIsland;
         currentIsland = _newIsland;
         
         transform.parent = currentIsland.transform;
+        if (fastMove)
+        {
+            transform.position = currentIsland.GetNextPosition();
+            transform.rotation = currentIsland.transform.rotation;
+            migrateCounter = 4;
+            CompleteMigration();
+        }
 
         UnparentStickmans();
         transform.position = currentIsland.GetNextPosition();
@@ -69,7 +76,8 @@ public class ColorStackItem : MonoBehaviour
         {
             oldIsland.UnHighlight();
             currentIsland.UnHighlight();
-            Destroy(pathway);
+            currentIsland.CheckCompleted();
+            if(pathway!=null) Destroy(pathway);
         }
     }
 
