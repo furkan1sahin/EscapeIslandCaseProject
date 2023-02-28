@@ -9,7 +9,7 @@ public class StickmanController : MonoBehaviour
     [SerializeField] string animatorKey = "Moving";
 
     ColorStackItem currentStack;
-    float StickmanSpeed = 5f;
+    float StickmanSpeed = 8f;
     public void InitializeSticman(ColorStackItem stack)
     {
         currentStack = stack;

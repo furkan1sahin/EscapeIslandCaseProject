@@ -7,7 +7,7 @@ using System;
 public class Island : MonoBehaviour
 {
     bool Highlighted = false;
-    bool Completed = false;
+    public bool Completed = false;
     public int StackCapacity = 4;
 
     public Stack<ColorStackItem> stack = new Stack<ColorStackItem>();
@@ -49,7 +49,7 @@ public class Island : MonoBehaviour
 
     public void CheckCompleted()
     {
-        if (stack.Count == 0) return;
+        if (stack.Count < StackCapacity) return;
         ColorStackItem[] stackItems = stack.ToArray();
         Colors currentStackColor = stackItems[0].itemData.colorType;
 

@@ -1435,6 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d728e4a4c5dc83342bc11531976bf47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hapticSettings: {fileID: 11400000, guid: 53343e751ffe0b0498cf4a723a640ff1, type: 2}
 --- !u!4 &590634891
 Transform:
   m_ObjectHideFlags: 0

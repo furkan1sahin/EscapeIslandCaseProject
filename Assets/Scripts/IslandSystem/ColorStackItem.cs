@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class ColorStackItem : MonoBehaviour
 {
@@ -21,6 +20,7 @@ public class ColorStackItem : MonoBehaviour
     GameObject pathway;
 
     int migrateCounter = 0;
+    float stickmanMoveDelay = 0.3f;
 
     private void Awake()
     {
@@ -65,7 +65,7 @@ public class ColorStackItem : MonoBehaviour
         {
             pathPoints[pathPoints.Count - 1] = stickmanPositions[i];
             stickmans[i].MoveToDestination(pathPoints.ToArray());
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(stickmanMoveDelay);
         }
     }
 

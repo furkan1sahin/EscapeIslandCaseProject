@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -40,7 +39,7 @@ public class IslandManager : MonoBehaviour
 
             if(highLightedIsland == null && island != null)
             {
-                if (island.stack.Count == 0) return; 
+                if (island.stack.Count == 0 || island.Completed) return; 
                 highLightedIsland = island;
                 highLightedIsland.Highlight();
                 highlightEvent.Invoke();
