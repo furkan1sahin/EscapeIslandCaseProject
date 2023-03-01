@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
-        currentLevelData.UpdateValue(CurrentLevel);
     }
 
     void Start()
@@ -24,6 +23,7 @@ public class GameManager : MonoBehaviour
         levelLoader = GetComponent<LevelLoader>();
         levelLoader.LoadLevel(CurrentLevel);
         loadLevelEvent.Invoke();
+        currentLevelData.UpdateValue(CurrentLevel);
     }
 
 
@@ -35,17 +35,18 @@ public class GameManager : MonoBehaviour
             isGameStarted = true;  
         }
 
-        if(isGameCompleted && Input.GetMouseButtonDown(0))
-        {
-            levelLoader.LoadLevel(CurrentLevel);
-            loadLevelEvent.Invoke();
-            isGameCompleted = false;
-            isGameStarted = false;
-        }
+        //if(isGameCompleted && Input.GetMouseButtonDown(0))
+        //{
+        //    levelLoader.LoadLevel(CurrentLevel);
+        //    loadLevelEvent.Invoke();
+        //    isGameCompleted = false;
+        //    isGameStarted = false;
+        //}
     }
 
     public void GameCompleted()
     {
+        Debug.Log("LevelCompleted");
         isGameCompleted = true;
         CurrentLevel++;
         PlayerPrefs.SetInt("CurrentLevel", CurrentLevel);
@@ -58,6 +59,9 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        loadLevelEvent.Invoke();
+        isGameCompleted = false;
+        isGameStarted = false;
         levelLoader.LoadLevel(CurrentLevel);
         currentLevelData.UpdateValue(CurrentLevel);
     }

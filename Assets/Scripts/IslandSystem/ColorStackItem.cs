@@ -91,7 +91,7 @@ public class ColorStackItem : MonoBehaviour
             GameObject newStickman = Instantiate(stickmanPrefab, transform, false);
             newStickman.transform.position = stickmanPositions[i];
             stickmans[i] = newStickman.GetComponent<StickmanController>();
-            stickmans[i].InitializeSticman(this);
+            stickmans[i].InitializeStickman(this);
         }
     }
 
@@ -121,5 +121,10 @@ public class ColorStackItem : MonoBehaviour
         { 
         item.transform.parent = null;
         }
+    }
+
+    public float GetItemMoveDelay()
+    {
+        return (float)stickmanCount * stickmanMoveDelay;
     }
 }

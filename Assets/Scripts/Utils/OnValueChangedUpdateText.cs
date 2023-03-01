@@ -5,18 +5,15 @@ using TMPro;
 public class OnValueChangedUpdateText : MonoBehaviour
 {
     [SerializeField] ScriptableData data;
-    TextMeshProUGUI text;
+    //TextMeshProUGUI text;
+    TMP_Text text;
     [SerializeField] string Prefix = "";
     [SerializeField] string Suffix = "";
-
-    //void Start()
-    //{
-    //    UpdateText();
-    //}
 
     private void OnEnable()
     {
         data.OnValueUpdated.AddListener(UpdateText);
+        UpdateText();
     }
 
     private void OnDisable()
@@ -26,6 +23,7 @@ public class OnValueChangedUpdateText : MonoBehaviour
 
     void UpdateText()
     {
+        Debug.Log("update level text");
         if(text == null) text = GetComponent<TextMeshProUGUI>();
         text.text = new string(Prefix + data.Value.ToString() + Suffix);
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -39,7 +40,7 @@ public class IslandManager : MonoBehaviour
 
             if(highLightedIsland == null && island != null)
             {
-                if (island.stack.Count == 0 || island.Completed) return; 
+                if (!island.CheckHighlightable()) return; 
                 highLightedIsland = island;
                 highLightedIsland.Highlight();
                 highlightEvent.Invoke();
@@ -52,11 +53,12 @@ public class IslandManager : MonoBehaviour
                 return;
             }
 
-            if (island.CheckAvailable(highLightedIsland.GetColor()))
+            if (island.CheckAvailable(highLightedIsland.GetColor(), highLightedIsland.GetRecursiveItemCount()))
             {
                 island.Highlight();
                 highlightEvent.Invoke();
-                MigrateItem(island);
+                //MigrateItem(island);
+                StartCoroutine(MigrateItems(island));
             } 
             else UnHighlight();
         }
@@ -64,24 +66,46 @@ public class IslandManager : MonoBehaviour
 
     void MigrateItem(Island island)
     {
-        ColorStackItem itemToMove = highLightedIsland.stack.Pop();
-        island.stack.Push(itemToMove);
+        ColorStackItem itemToMove = highLightedIsland.PopNextItem();
+        island.PushNextItem(itemToMove);
+
         itemToMove.MoveToNewIsland(island);
         //UnHighlight();
         highLightedIsland = null;
         undoController.AddMove(highLightedIsland, island);
     }
 
+    IEnumerator MigrateItems(Island island)
+    {
+        Island fromIsland = highLightedIsland;
+        highLightedIsland = null;
+
+        Colors colorToMove = fromIsland.PeekNextItem().itemData.colorType;
+
+        while(fromIsland.GetItemCount()>0 && fromIsland.PeekNextItem().itemData.colorType == colorToMove)
+        {
+            ColorStackItem itemToMove = fromIsland.PopNextItem();
+            island.PushNextItem(itemToMove);
+            itemToMove.MoveToNewIsland(island);
+
+            yield return new WaitForSeconds(itemToMove.GetItemMoveDelay());
+        }
+        fromIsland.UnHighlight();
+        undoController.AddMove(fromIsland, island);
+    }
+
     void UnHighlight()
     {
+        if (highLightedIsland == null) return;
         highLightedIsland.UnHighlight();
         highLightedIsland = null;
     }
 
     public void IslandCompleted()
     {
+        Debug.Log("Completed islands: " + completedIslands.ToString());
         completedIslands++;
-        if(completedIslands > colorsToComplete)
+        if(completedIslands >= colorsToComplete)
         {
             LevelCompleteEvent.Invoke();
         }

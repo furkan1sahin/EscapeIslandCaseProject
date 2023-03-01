@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a65e8cd767f6542b803bfd52a2adc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsToComplete: 1
+  colorsToComplete: 2
   LevelCompleteEvent:
     m_PersistentCalls:
       m_Calls:
@@ -251,6 +251,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 457155246}
     m_Modifications:
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 457155247}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IslandCompleted
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IslandManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: m_RootOrder
@@ -326,6 +361,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 457155246}
     m_Modifications:
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 457155247}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IslandCompleted
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IslandManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: m_RootOrder
@@ -404,19 +474,19 @@ PrefabInstance:
     - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: startItems.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: startItems.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: d068ad9a4ac022c468dace599f83639f,
+      objectReference: {fileID: 11400000, guid: ac90ef6f0c7f1864282c397184fe18a7,
         type: 2}
     - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: startItems.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 87775fc3e65b57b4693c88d71415bc33,
+      objectReference: {fileID: 11400000, guid: ac90ef6f0c7f1864282c397184fe18a7,
         type: 2}
     - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
@@ -430,6 +500,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 87775fc3e65b57b4693c88d71415bc33,
         type: 2}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 457155247}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IslandCompleted
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IslandManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: m_RootOrder
@@ -534,6 +639,51 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 87775fc3e65b57b4693c88d71415bc33,
         type: 2}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 457155247}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IslandCompleted
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: IslandManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098818568662098462, guid: 55c3611f8af31c949b7c00582d0e0f63,
+        type: 3}
+      propertyPath: IslandCompletedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4420070877623074640, guid: 55c3611f8af31c949b7c00582d0e0f63,
         type: 3}
       propertyPath: m_RootOrder

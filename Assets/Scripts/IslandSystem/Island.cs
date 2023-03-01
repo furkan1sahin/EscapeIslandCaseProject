@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class Island : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class Island : MonoBehaviour
     public bool Completed = false;
     public int StackCapacity = 4;
 
-    public Stack<ColorStackItem> stack = new Stack<ColorStackItem>();
+    Stack<ColorStackItem> stack = new Stack<ColorStackItem>();
     public Transform[] itemPositions;
 
     [SerializeField] GameObject stackItemPrefab;
@@ -23,6 +25,7 @@ public class Island : MonoBehaviour
     [SerializeField] ParticleSystem completedParticles;
 
     float unHighlightTime;
+    [SerializeField] UnityEvent IslandCompletedEvent;
 
     void Start()
     {
@@ -40,8 +43,14 @@ public class Island : MonoBehaviour
         }
     }
 
-    public bool CheckAvailable(Colors color)
+    public bool CheckHighlightable()
     {
+        return stack.Count > 0 && !Completed;
+    }
+
+    public bool CheckAvailable(Colors color, int count)
+    {
+        if(count>(StackCapacity-stack.Count)) return false;
         if(stack.Count >= StackCapacity) return false;
         if(stack.Count == 0) return true;
         return color == GetColor();
@@ -49,13 +58,14 @@ public class Island : MonoBehaviour
 
     public void CheckCompleted()
     {
+        if(Completed) return;
         if (stack.Count < StackCapacity) return;
         ColorStackItem[] stackItems = stack.ToArray();
         Colors currentStackColor = stackItems[0].itemData.colorType;
 
         for (int i = 0; i < stackItems.Length; i++)
         {
-            if (stackItems[0].itemData.colorType != currentStackColor) return;
+            if (stackItems[i].itemData.colorType != currentStackColor) return;
         }
 
         SetCompleted();
@@ -64,6 +74,7 @@ public class Island : MonoBehaviour
     void SetCompleted()
     {
         Completed = true;
+        IslandCompletedEvent.Invoke();
         if (completedFlag != null)
         {
             completedFlag.SetActive(true);
@@ -71,19 +82,6 @@ public class Island : MonoBehaviour
             flagRenderer.material = stack.Peek().itemData.material;
         }
         if (completedParticles != null) completedParticles.Play();
-    }
-
-    public void Clicked()
-    {
-        if(!Highlighted) { 
-        Highlighted= true;
-            Highlight();
-        }
-        else
-        {
-            Highlighted= false;
-            UnHighlight();
-        }
     }
 
     public void Highlight()
@@ -106,5 +104,45 @@ public class Island : MonoBehaviour
     public Vector3 GetNextPosition()
     {
         return itemPositions[stack.Count - 1].position;
+    }
+
+    public ColorStackItem PopNextItem()
+    {
+        if (stack.Count == 0) return null;
+        return stack.Pop();
+    }
+
+    public ColorStackItem PeekNextItem() 
+    {
+        if(stack.Count == 0) return null;
+        return stack.Peek();
+    }
+
+    public void PushNextItem(ColorStackItem item)
+    {
+        stack.Push(item);
+    }
+
+    public int GetRecursiveItemCount()
+    {
+        if(stack.Count == 0) return 0;
+        Stack<ColorStackItem> tempStack = new Stack<ColorStackItem>();
+        Colors topColor = stack.Peek().itemData.colorType;
+        int count = 0;
+        while(stack.Count>0 && stack.Peek().itemData.colorType == topColor)
+        {
+            tempStack.Push(stack.Pop());
+            count++;
+        }
+        while(tempStack.Count > 0)
+        {
+            stack.Push(tempStack.Pop());
+        }
+        return count;
+    }
+
+    public int GetItemCount()
+    {
+        return stack.Count;
     }
 }

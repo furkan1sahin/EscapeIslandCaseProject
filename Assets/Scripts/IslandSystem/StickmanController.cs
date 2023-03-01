@@ -10,7 +10,9 @@ public class StickmanController : MonoBehaviour
 
     ColorStackItem currentStack;
     float StickmanSpeed = 8f;
-    public void InitializeSticman(ColorStackItem stack)
+
+
+    public void InitializeStickman(ColorStackItem stack)
     {
         currentStack = stack;
         myRenderer.material = currentStack.itemData.material;
@@ -27,7 +29,7 @@ public class StickmanController : MonoBehaviour
             path[i].y = 1;
             float movementTime = Vector3.Distance(lastPos, path[i])/StickmanSpeed;
             lastPos = path[i];
-            movementSequence.Append(transform.DOMove(path[i], movementTime).SetEase(Ease.Linear));
+            movementSequence.Append(transform.DOLocalMove(path[i], movementTime).SetEase(Ease.Linear));
             movementSequence.Join(transform.DOLookAt(path[i], 0.2f));
         }
         movementSequence.AppendCallback(OnMovementFinished);
@@ -37,6 +39,7 @@ public class StickmanController : MonoBehaviour
     void OnMovementFinished()
     {
         transform.parent = currentStack.transform;
+        transform.DOLocalMoveY(0, 0.2f);
         transform.DOLocalRotate(Vector3.zero, 0.3f).OnComplete(currentStack.CompleteMigration);
         myAnimator.SetBool(animatorKey, false);
     }

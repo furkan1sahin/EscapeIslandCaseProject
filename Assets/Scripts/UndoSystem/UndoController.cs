@@ -35,8 +35,8 @@ public class UndoController : MonoBehaviour
         if(moves!= null && undoLeft>0) 
         {
             int i = moves.Count -1;
-            ColorStackItem itemToMove = moves[i].to.stack.Pop();
-            moves[i].from.stack.Push(itemToMove);
+            ColorStackItem itemToMove = moves[i].to.PopNextItem();
+            moves[i].from.PushNextItem(itemToMove);
             itemToMove.MoveToNewIsland(moves[i].from);
             moves.RemoveAt(i);
         }
